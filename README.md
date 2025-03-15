@@ -3,6 +3,8 @@ Dbnostix company Profile
 
 
 ## Domain Names
+[dynadot](https://www.dynadot.com/domain/whois)
+
 ```yaml
 Domain Name: www.dbnostix.com
 Registrant: http://www.noip.com/whois/
