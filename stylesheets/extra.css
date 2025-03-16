@@ -1,0 +1,15 @@
+ /* Change tab background and text color */
+.md-tabs {
+    background-color: #333; /* Dark background for contrast */
+}
+
+.md-tabs__link {
+    color: #ffffff !important; /* White text for readability */
+}
+
+/* Highlight the active tab */
+.md-tabs__item--active .md-tabs__link {
+    background-color: #007ACC; /* Accent color */
+    color: #ffffff !important; /* Ensure high contrast */
+}
+
