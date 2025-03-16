@@ -52,7 +52,9 @@ nav:
       - services/predictive_modeling.md
       - services/large_language_model.md
   - Python:
-      - python/overview.md
+      - python/index.md
+      - python/00_Overview.md
+      - python/01_Introduction.md     
       - python/pandas.md
       - python/yfinance.md
       - python/best_practice.md
@@ -68,6 +70,7 @@ nav:
       - database/duckdb.md
   - MkDocs: 
       - mkdocs/mkdocs.md
+      - mkdocs/admonitions.md
       - mkdocs/collapsible_sections.md
   - Obsidian:
       - obsidian/obsidian.md
