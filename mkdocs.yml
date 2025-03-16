@@ -41,17 +41,18 @@ markdown_extensions:
 
 nav:
   - Dbnostix: 
-      - dbnostix/dbnostix.md
+      - index.md
+      - dbnostix/company.md
       - dbnostix/about.md
       - dbnostix/contact.md
       - dbnostix/services.md
   - Services:
-      - services/database_infrastucture.md
+      - services/database_infrastructure.md
       - services/data_science.md
       - services/predictive_modeling.md
-      - services_large_language_model.md
+      - services/large_language_model.md
   - Python:
-      - python/python.md
+      - python/overview.md
       - python/pandas.md
       - python/yfinance.md
       - python/best_practice.md
@@ -70,5 +71,5 @@ nav:
       - mkdocs/collapsible_sections.md
   - Obsidian:
       - obsidian/obsidian.md
-      - mkdocs/cards.md
+      - obsidian/cards.md
 
