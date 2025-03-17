@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="06_Control_Flow.html">
+        <link rel="prev" href="10_Python_Standard_Library.html">
       
       
-        <link rel="next" href="08_Functions_and_Modules.html">
+        <link rel="next" href="12_Exception_Handling_and_Debugging.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>07 🎒 Data Structures - DBNOSTIX</title>
+        <title>11 🌐 File Handling - DBNOSTIX</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#07-data-structures" class="md-skip">
+        <a href="#11-file-handling" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              07 🎒 Data Structures
+              11 🌐 File Handling
             
           </span>
         </div>
@@ -838,31 +838,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    07 🎒 Data Structures
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="07_Data_Structures.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="07_Data_Structures.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,68 +851,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#071-lists-ordered-mutable-indexed" class="md-nav__link">
-    <span class="md-ellipsis">
-      07.1 📋 Lists (Ordered, Mutable, Indexed)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="07.1 📋 Lists (Ordered, Mutable, Indexed)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      ✅ Creating a List
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 List Operations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-slicing" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 List Slicing
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1009,10 +926,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="11_File_Handling_and_IO.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    11 🌐 File Handling
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="11_File_Handling_and_IO.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1022,6 +960,257 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#111-working-with-files-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 📂 Working with Files in Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.1 📂 Working with Files in Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opening-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Opening a File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-writing-to-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 📝 Writing to a File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 📝 Writing to a File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Writing Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appending-data-to-an-existing-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Appending Data to an Existing File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-reading-files-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 📖 Reading Files Efficiently
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.3 📖 Reading Files Efficiently">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-a-file-line-by-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Reading a File Line by Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-readlines-to-read-all-lines-as-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Using readlines() to Read All Lines as a List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-using-with-statement-for-file-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4 🚀 Using with Statement for File Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 🚀 Using with Statement for File Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safe-file-handling-with-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Safe File Handling with with
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-handling-different-file-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5 📊 Handling Different File Formats
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 📊 Handling Different File Formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-with-csv-files-csv-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Working with CSV Files (csv Module)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-to-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Writing to a CSV File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-json-files-json-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Working with JSON Files (json Module)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-error-handling-in-file-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.6 🛠️ Error Handling in File Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.6 🛠️ Error Handling in File Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-file-not-found-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Handling File Not Found Error
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-working-with-directories-os-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.7 📂 Working with Directories (os Module)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.7 📂 Working with Directories (os Module)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-files-in-a-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Listing Files in a Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-deleting-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Creating and Deleting Folders
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Thoughts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1745,37 +1934,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#071-lists-ordered-mutable-indexed" class="md-nav__link">
+  <a href="#111-working-with-files-in-python" class="md-nav__link">
     <span class="md-ellipsis">
-      07.1 📋 Lists (Ordered, Mutable, Indexed)
+      11.1 📂 Working with Files in Python
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="07.1 📋 Lists (Ordered, Mutable, Indexed)">
+    <nav class="md-nav" aria-label="11.1 📂 Working with Files in Python">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-a-list" class="md-nav__link">
+  <a href="#opening-a-file" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Creating a List
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 List Operations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-slicing" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 List Slicing
+      ✅ Opening a File
     </span>
   </a>
   
@@ -1783,6 +1954,213 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-writing-to-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 📝 Writing to a File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 📝 Writing to a File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Writing Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appending-data-to-an-existing-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Appending Data to an Existing File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-reading-files-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 📖 Reading Files Efficiently
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.3 📖 Reading Files Efficiently">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-a-file-line-by-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Reading a File Line by Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-readlines-to-read-all-lines-as-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Using readlines() to Read All Lines as a List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-using-with-statement-for-file-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4 🚀 Using with Statement for File Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 🚀 Using with Statement for File Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safe-file-handling-with-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Safe File Handling with with
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-handling-different-file-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5 📊 Handling Different File Formats
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 📊 Handling Different File Formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-with-csv-files-csv-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Working with CSV Files (csv Module)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-to-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Writing to a CSV File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-json-files-json-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Working with JSON Files (json Module)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-error-handling-in-file-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.6 🛠️ Error Handling in File Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.6 🛠️ Error Handling in File Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-file-not-found-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Handling File Not Found Error
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-working-with-directories-os-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.7 📂 Working with Directories (os Module)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.7 📂 Working with Directories (os Module)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-files-in-a-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Listing Files in a Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-deleting-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Creating and Deleting Folders
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Thoughts
+    </span>
+  </a>
   
 </li>
       
@@ -1802,122 +2180,175 @@
 
 
 
-<h1 id="07-data-structures">07 🎒 Data Structures</h1>
-<p>Data structures are essential for organizing, storing, and managing data efficiently in Python. Python provides built-in data structures such as Lists, Tuples, Dictionaries, and Sets, each suited for different tasks.  </p>
-<p>This chapter covers their properties, operations, and use cases in Data Science, Machine Learning, and AI applications.</p>
+<h1 id="11-file-handling">11 🌐 File Handling</h1>
+<p>File handling is an essential part of programming, allowing reading, writing, and manipulating files. In data science, machine learning, and AI, working with text files, CSV files, and logs is common for storing and processing large datasets.  </p>
+<p>This chapter covers file handling operations, including reading, writing, appending, working with different file formats, and error handling.</p>
 <hr />
-<h2 id="071-lists-ordered-mutable-indexed">07.1 📋 Lists (Ordered, Mutable, Indexed)</h2>
-<p>A list is an ordered, mutable (changeable) collection that allows duplicate values. Lists are widely used for storing and manipulating datasets.</p>
-<h3 id="creating-a-list">✅ Creating a List</h3>
-<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
-<span class="n">mixed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<h2 id="111-working-with-files-in-python">11.1 📂 Working with Files in Python</h2>
+<p>Python provides built-in functions for opening, reading, writing, and closing files.</p>
+<h3 id="opening-a-file">✅ Opening a File</h3>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>  <span class="c1"># Open a file in read mode</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>  <span class="c1"># Read the entire file content</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># Always close the file after use</span>
 </code></pre></div>
-<h3 id="list-operations">🔹 List Operations</h3>
-<div class="highlight"><pre><span></span><code><span class="n">fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;mango&quot;</span><span class="p">)</span>  <span class="c1"># Add element</span>
-<span class="n">fruits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span> <span class="c1"># Remove element</span>
-<span class="n">fruits</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;grape&quot;</span><span class="p">)</span>  <span class="c1"># Insert at index</span>
-<span class="n">fruits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># Remove last item</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
-</code></pre></div>
-<p>✅ Use Case: Managing data records, feature lists, training data batches in ML.</p>
-<h3 id="list-slicing">🔹 List Slicing</h3>
-<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># Output: [2, 3, 4]</span>
-</code></pre></div>
-<p>✅ Use Case: Extracting subsets of data in AI and ML models.</p>
+<p>✅ Use Case: Reading log files, dataset files, configuration files.</p>
 <hr />
-<h1 id="072-tuples-ordered-immutable-indexed">07.2 📌 Tuples (Ordered, Immutable, Indexed)</h1>
-<p>A tuple is like a list but immutable (cannot be modified). Tuples are used where data should not change.</p>
-<h3 id="creating-a-tuple">✅ Creating a Tuple</h3>
-<div class="highlight"><pre><span></span><code><span class="n">coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">20.3</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<h2 id="112-writing-to-a-file">11.2 📝 Writing to a File</h2>
+<p>To write to a file, use write ('w') mode. If the file doesn’t exist, Python creates a new file.</p>
+<h3 id="writing-data">✅ Writing Data</h3>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>  <span class="c1"># Open in write mode</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, Python!</span><span class="se">\n</span><span class="s2">Welcome to File Handling.&quot;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<h3 id="tuple-operations">🔹 Tuple Operations</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Access elements</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>     <span class="c1"># Tuple length</span>
+<p>🔹 Note: <code>'w'</code> mode overwrites existing content. To append, use <code>'a'</code>.</p>
+<h3 id="appending-data-to-an-existing-file">✅ Appending Data to an Existing File</h3>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">This is an additional line.&quot;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<p>✅ Use Case: Storing constant data like color codes, geographic coordinates.</p>
-<h3 id="tuple-packing-unpacking">🔹 Tuple Packing &amp; Unpacking</h3>
-<div class="highlight"><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">point</span>  <span class="c1"># Unpacking</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># Output: 3 4</span>
-</code></pre></div>
-<p>✅ Use Case: Assigning multiple values in one step in AI and data transformations.</p>
+<p>✅ Use Case: Logging data, saving AI/ML model outputs.</p>
 <hr />
-<h1 id="073-dictionaries-key-value-pairs-unordered-mutable">07.3 🗂️ Dictionaries (Key-Value Pairs, Unordered, Mutable)</h1>
-<p>A dictionary (<code>dict</code>) stores data in key-value pairs, making it ideal for fast lookups.</p>
-<h3 id="creating-a-dictionary">✅ Creating a Dictionary</h3>
-<div class="highlight"><pre><span></span><code><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
-</code></pre></div>
-<h3 id="dictionary-operations">🔹 Dictionary Operations</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>   <span class="c1"># Access value</span>
-<span class="n">student</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">22</span>      <span class="c1"># Modify value</span>
-<span class="n">student</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;NY&quot;</span>   <span class="c1"># Add new key-value pair</span>
-<span class="k">del</span> <span class="n">student</span><span class="p">[</span><span class="s2">&quot;grade&quot;</span><span class="p">]</span>     <span class="c1"># Remove key-value pair</span>
-</code></pre></div>
-<p>✅ Use Case: Storing JSON-like data, AI model parameters, ML hyperparameters.</p>
-<h3 id="iterating-over-a-dictionary">🔹 Iterating Over a Dictionary</h3>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">student</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>✅ Use Case: Extracting metadata from datasets, handling API responses.</p>
-<hr />
-<h1 id="074-sets-unordered-unique-elements-fast-lookups">07.4 🔥 Sets (Unordered, Unique Elements, Fast Lookups)</h1>
-<p>A set is an unordered collection of unique elements, useful for removing duplicates and fast lookups.</p>
-<h3 id="creating-a-set">✅ Creating a Set</h3>
-<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>  <span class="c1"># Duplicates removed automatically</span>
-</code></pre></div>
-<h3 id="set-operations">🔹 Set Operations</h3>
-<div class="highlight"><pre><span></span><code><span class="n">numbers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Add element</span>
-<span class="n">numbers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Remove element</span>
-</code></pre></div>
-<h3 id="set-operations-for-ai-ml">🔹 Set Operations for AI &amp; ML</h3>
-<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<h2 id="113-reading-files-efficiently">11.3 📖 Reading Files Efficiently</h2>
+<p>Python provides different ways to read files efficiently.</p>
+<h3 id="reading-a-file-line-by-line">✅ Reading a File Line by Line</h3>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>    <span class="c1"># {1, 2, 3, 4, 5, 6}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>  <span class="c1"># {3, 4}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>    <span class="c1"># {1, 2}</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>  <span class="c1"># Removing extra newlines</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<p>✅ Use Case: Removing duplicate values in datasets, comparing feature sets.</p>
+<p>✅ Use Case: Processing large datasets without memory overflow.</p>
+<h3 id="using-readlines-to-read-all-lines-as-a-list">🔹 Using <code>readlines()</code> to Read All Lines as a List</h3>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>  <span class="c1"># Output: List of lines in the file</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>✅ Use Case: Reading structured text data (e.g., logs, reports).</p>
 <hr />
-<h1 id="summary">🚀 Summary</h1>
+<h2 id="114-using-with-statement-for-file-handling">11.4 🚀 Using <code>with</code> Statement for File Handling</h2>
+<p>Using <code>with open()</code> ensures that the file automatically closes after execution.</p>
+<h3 id="safe-file-handling-with-with">✅ Safe File Handling with <code>with</code></h3>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<p>✅ Use Case: Better memory management, avoiding file lock issues.</p>
+<hr />
+<h2 id="115-handling-different-file-formats">11.5 📊 Handling Different File Formats</h2>
+<h3 id="working-with-csv-files-csv-module">🔹 Working with CSV Files (<code>csv</code> Module)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>  <span class="c1"># Output: List of values in each row</span>
+</code></pre></div>
+<p>✅ Use Case: Reading structured datasets in ML models.</p>
+<h3 id="writing-to-a-csv-file">🔹 Writing to a CSV File</h3>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
+</code></pre></div>
+<p>✅ Use Case: Saving processed data from AI pipelines.</p>
+<hr />
+<h3 id="working-with-json-files-json-module">🔹 Working with JSON Files (<code>json</code> Module)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span><span class="p">}</span>
+
+<span class="c1"># Writing JSON data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+
+<span class="c1"># Reading JSON data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">loaded_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loaded_data</span><span class="p">)</span>  <span class="c1"># Output: {&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 25, &#39;city&#39;: &#39;New York&#39;}</span>
+</code></pre></div>
+<p>✅ Use Case: Handling API responses, configuration files, AI model metadata.</p>
+<hr />
+<h2 id="116-error-handling-in-file-operations">11.6 🛠️ Error Handling in File Operations</h2>
+<p>It’s important to handle file-related errors to prevent crashes.</p>
+<h3 id="handling-file-not-found-error">✅ Handling File Not Found Error</h3>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;non_existent.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: File not found!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>✅ Use Case: Ensuring robust scripts in production AI pipelines.</p>
+<hr />
+<h2 id="117-working-with-directories-os-module">11.7 📂 Working with Directories (<code>os</code> Module)</h2>
+<p>The <code>os</code> module allows working with directories and file management.</p>
+<h3 id="listing-files-in-a-directory">✅ Listing Files in a Directory</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>  <span class="c1"># Lists all files in the current directory</span>
+</code></pre></div>
+<h3 id="creating-and-deleting-folders">🔹 Creating and Deleting Folders</h3>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;new_folder&quot;</span><span class="p">)</span>  <span class="c1"># Create a folder</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">&quot;new_folder&quot;</span><span class="p">)</span>  <span class="c1"># Remove a folder</span>
+</code></pre></div>
+<p>✅ Use Case: Managing dataset directories in ML projects.</p>
+<hr />
+<h2 id="summary">Summary</h2>
 <table>
 <thead>
 <tr>
-<th>Data Structure</th>
-<th>Properties</th>
+<th>Concept</th>
+<th>Description</th>
 <th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>List  📋</td>
-<td>Ordered, Mutable</td>
-<td>Storing datasets, feature lists</td>
+<td>Reading Files</td>
+<td><code>open("file.txt", "r")</code></td>
+<td>Loading datasets, logs</td>
 </tr>
 <tr>
-<td>Tuple 📌</td>
-<td>Ordered, Immutable</td>
-<td>Constants, fixed ML configurations</td>
+<td>Writing Files</td>
+<td><code>open("file.txt", "w")</code></td>
+<td>Saving AI model results</td>
 </tr>
 <tr>
-<td>Dictionary 🗂️</td>
-<td>Key-Value Pairs, Mutable</td>
-<td>Fast lookups, JSON data, ML parameters</td>
+<td>Appending to Files</td>
+<td><code>open("file.txt", "a")</code></td>
+<td>Logging incremental data</td>
 </tr>
 <tr>
-<td>Set 🔥</td>
-<td>Unordered, Unique Elements</td>
-<td>Removing duplicates, comparing data</td>
+<td>Using <code>with</code> Statement</td>
+<td>Ensures safe file handling</td>
+<td>Avoids resource leaks</td>
+</tr>
+<tr>
+<td>CSV Handling</td>
+<td><code>csv.reader()</code>, <code>csv.writer()</code></td>
+<td>Working with structured data</td>
+</tr>
+<tr>
+<td>JSON Handling</td>
+<td><code>json.load()</code>, <code>json.dump()</code></td>
+<td>API responses, metadata storage</td>
+</tr>
+<tr>
+<td>Error Handling</td>
+<td><code>try-except</code> for missing files</td>
+<td>Prevents crashes in AI pipelines</td>
+</tr>
+<tr>
+<td>Directory Management</td>
+<td><code>os.listdir()</code>, <code>os.mkdir()</code></td>
+<td>Managing datasets and logs</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h1 id="final-thoughts">🔚 Final Thoughts</h1>
-<p>Understanding Lists, Tuples, Dictionaries, and Sets is crucial for data processing, feature engineering, and AI applications.</p>
-<p>Would you like real-world coding exercises on these topics? 🚀</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Mastering file handling and I/O is essential for data processing, logging, and storage in AI, ML, and automation projects.</p>
+<p>Would you like real-world coding exercises for practice? 🚀</p>
 
 
 
