@@ -1,4 +1,4 @@
-# 16 🔮 Predictive Modeling with Python  
+# 16 🔮 Predictive Modeling
 
 Predictive modeling is the core of machine learning, where we use historical data to make future predictions. This chapter covers data preprocessing, feature engineering, model selection, evaluation, and deployment for predictive analytics.  
 
