@@ -13,3 +13,25 @@
     color: #ffffff !important; /* Ensure high contrast */
 }
 
+
+/* extra.css - consistent heading sizes */
+.md-typeset h1 {
+    font-size: 2rem; /* adjust size as needed */
+}
+
+.md-typeset h2 {
+    font-size: 1.75rem; /* adjust size as needed */
+}
+
+.md-typeset h3 {
+    font-size: 1.5rem; /* adjust size as needed */
+}
+
+.md-typeset h4 {
+    font-size: 1.25rem; /* adjust size as needed */
+}
+
+.md-typeset h5 {
+    font-size: 1rem; /* adjust size as needed */
+}
+
