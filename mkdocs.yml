@@ -62,7 +62,14 @@ nav:
       - python/07_Data_Structures.md
       - python/08_Functions_and_Modules.md
       - python/09_Object-Oriented_Programming.md
-
+      - python/10_Python_Standard_Library.md
+      - python/11_File_Handling_and_IO.md      
+      - python/12_Exception_Handling_and_Debugging.md
+      - python/13_Web_Development.md
+      - python/14_Data_Science.md
+      - python/15_Machine_Learning_and_AI.md
+      - python/16_Predictive_Modeling.md
+      - python/17_Databases.md                         
       - python/pandas.md
       - python/yfinance.md
       - python/best_practice.md
