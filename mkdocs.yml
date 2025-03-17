@@ -52,9 +52,17 @@ nav:
       - services/predictive_modeling.md
       - services/large_language_model.md
   - Python:
-      - python/index.md
-      - python/00_Overview.md
-      - python/01_Introduction.md     
+      - python/00_Contents.md 
+      - python/01_Overview.md
+      - python/02_Setup_Installation.md
+      - python/03_Core_Concepts.md     
+      - python/04_Advanced_Concepts.md
+      - python/05_Syntax_and_Variables.md
+      - python/06_Control_Flow.md
+      - python/07_Data_Structures.md
+      - python/08_Functions_and_Modules.md
+      - python/09_Object-Oriented_Programming.md
+
       - python/pandas.md
       - python/yfinance.md
       - python/best_practice.md
