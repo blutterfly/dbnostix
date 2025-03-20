@@ -77,6 +77,9 @@ nav:
       - python/pandas.md
       - python/yfinance.md
       - python/best_practice.md
+  - Pandas:
+      - pandas/contents.md
+      - pandas/select_filter.md    
   - AlgoTrade:
       - algotrade/algotrade.md
       - algotrade/extract.md
