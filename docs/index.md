@@ -1,4 +1,4 @@
-# Welcome
+# Home
 
 **Precision Analytics, Powerful Results**
 
