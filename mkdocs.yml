@@ -46,7 +46,7 @@ nav:
       - dbnostix/contents.md
       - dbnostix/about.md
       - dbnostix/contact.md
-      - dbnostix/services.md
+      - dbnostix/services.md      
   - Services:
       - services/database_infrastructure.md
       - services/data_science.md
@@ -82,7 +82,14 @@ nav:
       - pandas/select_filter.md
       - pandas/generate_data.md
       - pandas/cheat_sheet.md
-      - pandas/list_function.md          
+      - pandas/list_function.md
+      - pandas/quick_examples.md
+      - pandas/numpy.md
+      - pandas/skimpy.md
+      - pandas/summarizer.md
+      - pandas/profiling.md
+      - pandas/google_sheets.md
+      - pandas/advanced_techniques.md                
   - AlgoTrade:
       - algotrade/algotrade.md
       - algotrade/extract.md
@@ -100,7 +107,4 @@ nav:
       - mkdocs/mkdocs.md
       - mkdocs/admonitions.md
       - mkdocs/collapsible_sections.md
-  - Obsidian:
-      - obsidian/obsidian.md
-      - obsidian/cards.md
-
+  

@@ -1,4 +1,4 @@
-# Pandas
+# Contents
 
 For data scientists, pandas is the most important python module in their repertoire.
 
