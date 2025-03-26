@@ -6,8 +6,14 @@
 In this post we will introduce several must-know Pandas methods for
 effective data exploration.
 
-### Generate  CSV sample dataset
-Create a CSV sample dataset
+### Pandas Functions
+
+#### Faker
+TODO: Use stock data to demonstrated this.
+
+Although not part of pandas,  we need a dataset to demonstrate various pandas functions.
+
+Create a CSV sample dataset using faker.
 
 ~~~python 
 import random
@@ -75,6 +81,8 @@ This code ensures that the sample dataset is saved as a structured CSV file
 (sample_orders.csv) for further data analysis by pandas functions.
 Head function head()
 head(): Used to preview the top rows of the sample dataset.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -84,8 +92,13 @@ df = pd.read_csv("sample_orders.csv")
 # Display the first 10 rows of the dataset
 
 print(df.head(10))
-Tail function tail()
-tail(): Used to preview the bottom rows of the sample dataset.
+~~~
+
+#### Head Tail
+head(): Use to preview the bottom rows of the sample dataset.
+tail(): Use to preview the bottom rows of the sample dataset.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -94,12 +107,18 @@ df = pd.read_csv("sample_orders.csv")
 
 # Display the last 10 rows of the dataset
 
+print(df.head(10))
 print(df.tail(10))
-Sample function sample()
+~~~
+
+
+#### Sample
 sample(): This function is highly valuable when working with large datasets.
 When we need to extract and analyze a smaller subset from a larger
 DataFrame, `sample()` helps efficiently retrieve random samples, enabling
 preliminary data exploration or performance evaluation.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -109,9 +128,15 @@ df = pd.read_csv("sample_orders.csv")
 # Read and display the random 10 rows from the dataset
 
 print(df.sample(10))
+~~~
+
+#### Info
+
 Information function info()
 info(): This function provides a summary of the dataset, including the
 number of entries, column names, data types, and memory usage.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -121,10 +146,14 @@ df = pd.read_csv("sample_orders.csv")
 # Display a summary of the dataset
 
 print(df.info())
-Describe function describe()
+~~~
+
+#### Describe
 describe(): This function provides basic statistical information about the
 dataset, such as mean, standard deviation, minimum and maximum values,
 and quartiles.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -134,9 +163,14 @@ df = pd.read_csv("sample_orders.csv")
 # Display the basic statistical information about the dataset
 
 print(df.describe())
+~~~
+
+#### Value Counts
 Value counts function value_counts()
 value_counts(): This method returns the count of all unique values in a
 column or a pandas Series.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -146,8 +180,14 @@ df = pd.read_csv("sample_orders.csv")
 # Display the count of all unique values in a column,such as "Category"
 
 print(df["Category"].value_counts())
-Shape attribute
+
+~~~
+
+#### Shape
+
 shape: This attribute returns the number of rows and columns in the dataset.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -157,8 +197,14 @@ df = pd.read_csv("sample_orders.csv")
 # Display the number of rows and columns in the dataset
 
 print(df.shape)
+~~~~
+
+#### Dtypes
+
 Dataframe dtypes attribute
 df.dtypes: This attribute returns the data types of all columns.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -168,9 +214,14 @@ df = pd.read_csv("sample_orders.csv")
 # Display the data types of all columns
 
 print(df.dtypes)
+~~~
+
+#### Unique
 Unique function unique()
 unique(): This method returns all unique values in a column or a pandas
 Series.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -180,9 +231,14 @@ df = pd.read_csv("sample_orders.csv")
 # Display all unique values in a column
 
 print(df["Category"].unique())
+~~~
+
+#### Non-unique
 Nunique function nunique()
 nunique(): This function returns the number of unique values in a
 DataFrame.
+
+~~~python
 import pandas as pd
 
 # Read the sample_orders.csv file into a Pandas DataFrame
@@ -192,12 +248,5 @@ df = pd.read_csv("sample_orders.csv")
 # Display the count of unique values in the dataset, sorted in descending order
 
 df.nunique().sort_values(ascending=False)
-In this post we provide a detailed introduction to essential core functions in
-the Pandas library, which are crucial for data analysis. These functions make
-data exploration more straightforward and efficient, helping analysts quickly
-grasp the structure and characteristics of a dataset.
-With these must-know functions, data analysts can gain deeper insights into
-the data, uncover the stories behind it, and provide data-driven support for
-decision-making. These Pandas functions are an indispensable part of the
-data analysis workflow, enhancing both the efficiency and the depth of
-analysis.
+~~~
+
