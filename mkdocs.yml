@@ -2,6 +2,7 @@ site_name: DBNOSTIX
 
 theme:
   name: material
+  logo: images/blue_butterfly.png
   custom_dir: overrides  # Enables Bootstrap customization
   icon:
     repo: fontawesome/brands/github
