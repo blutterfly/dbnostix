@@ -1,0 +1,2314 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>13 Select and Filter Data - DBNOSTIX</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cerulean/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-loc-for-label-based-selection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DBNOSTIX" class="md-header__button md-logo" aria-label="DBNOSTIX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DBNOSTIX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              13 Select and Filter Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  Dbnostix
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../services/database_infrastructure.html" class="md-tabs__link">
+          
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../python/00_landing.html" class="md-tabs__link">
+          
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="contents.html" class="md-tabs__link">
+          
+  
+  Pandas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../algotrade/algotrade.html" class="md-tabs__link">
+          
+  
+  AlgoTrade
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../options/contents.html" class="md-tabs__link">
+          
+  
+  Options
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../database/database.html" class="md-tabs__link">
+          
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mkdocs/mkdocs.html" class="md-tabs__link">
+          
+  
+  MkDocs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DBNOSTIX" class="md-nav__button md-logo" aria-label="DBNOSTIX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DBNOSTIX
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dbnostix
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Dbnostix
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/about.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/contact.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/services.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/database_infrastructure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/data_science.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/predictive_modeling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/large_language_model.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large Language Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_landing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_Contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_Contents_Jazzy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python for Data Science &amp; Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/01_Overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 📘 Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/02_Setup_Installation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 🛠️ Setup and Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/03_Core_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 ⚙️ Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/04_Advanced_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 ⚡ Advanced Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/05_Syntax_and_Variables.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 📝 Syntax and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/06_Control_Flow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 🔄 Control Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/07_Data_Structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 🎒 Data Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/08_Functions_and_Modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 🎭 Functions and Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/09_Object-Oriented_Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 🏗️ Object-Oriented
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/10_Python_Standard_Library.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 🧰 Python Standard Library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/11_File_Handling_and_IO.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 🌐 File Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/12_Exception_Handling_and_Debugging.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 ⚡ Errors and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/13_Web_Development.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13 📡 Web Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/14_Data_Science.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14 📊 Data Science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/15_Machine_Learning_and_AI.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15 🧠 Machine Learning and AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/16_Predictive_Modeling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16 🔮 Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/17_Databases.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17 🏛️ Databases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/17x_Examples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Real-World Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/pandas.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/yfinance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Yfinance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/best_practice.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pandas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pandas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="select_filter.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Select and Filter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="generate_data.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cheat_sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="list_function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quick_examples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="numpy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NumPy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="skimpy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skimpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="summarizer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SummaryTools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="profiling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profiling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="google_sheets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Sheets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="advanced_techniques.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AlgoTrade
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AlgoTrade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/algotrade.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algotrade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/extract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/transform.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/load.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Options
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../options/contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../options/strangle_strategy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Strangle Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/database.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/db2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Db2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/postgresql.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Postgresql
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/duckdb.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Duckdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            MkDocs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/mkdocs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/admonitions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admonitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/collapsible_sections.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collapsible Sections
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>Member-only story
+Python Pandas: loc and iloc
+How to Select and Filter Data in Python
+Python Fundamentals · Following
+Published in Towards Dev · 5 min read · Mar 16, 2024
+27
+Python pandas library provides several methods for selecting and filtering
+data, such as loc, iloc, [ ] bracket operator, query, isin, between.
+Open in app
+Search Write
+Image from pexels.com
+This article will guide you through the essential techniques and functions for
+data selection and filtering using pandas. Whether you need to extract
+specific rows or columns or apply conditional filtering, pandas has got you
+covered. Let’s dive in!
+Table of Contents
+1. Selecting Columns : [ ] operator, loc, iloc
+2. Filtering Rows : [ ] operator, loc, iloc, isin, query, between, string methods
+3. Updating Values : loc, iloc, replace
+1. Selecting Columns
+loc[ ] : This accessor selects rows and columns by labels.
+Example: df.loc[row_label, column_label]
+*** You can also use loc for slicing operations:
+df.loc['row1_label':'row2_label' , 'column1_label':'column2_label']</p>
+<h1 id="using-loc-for-label-based-selection">Using loc for label-based selection</h1>
+<p>df.loc[:, 'Customer Country':'Customer State']
+all the rows &amp; columns from Customer Country to Customer State</p>
+<h1 id="using-loc-for-label-based-selection_1">Using loc for label-based selection</h1>
+<p>df.loc[[0,1,2], 'Customer Country':'Customer State']
+rows 0,1,2 &amp; columns from Customer Country to Customer State
+iloc[ ] : This accessor selects rows and columns by integer location.
+Example: df.iloc[row_position, column_position]
+*** You can also use iloc for slicing operations:
+df.iloc['row1_position':'row2_position','col1_position':'col2_position']</p>
+<h1 id="using-iloc-for-index-based-selection">Using iloc for index-based selection</h1>
+<p>df.iloc[[0,1,2,3] , [3,4,5,6,7,8]]</p>
+<h1 id="or">or</h1>
+<p>df.iloc[[0,1,2,3] , 3:9]
+rows 0,1,2,3 &amp; columns 3 to 8</p>
+<h1 id="using-iloc-for-index-based-selection_1">Using iloc for index-based selection</h1>
+<p>df.iloc[:, 3:8]
+all the rows &amp; columns from 3 to 8
+[ ] Bracket operator : It allows to select one or multiple columns.
+Example: df[['column_label']] or df[['column1', 'column2']]</p>
+<h1 id="selecting-a-single-column">Selecting a single column</h1>
+<p>df[['Customer Country']]
+a single column</p>
+<h1 id="selecting-multiple-columns">Selecting multiple columns</h1>
+<p>df[['Customer Country', 'Customer State']]
+multiple columns
+2. Filtering Rows
+loc[ ] : It filters rows by labels.
+Example: df.loc[condition]</p>
+<h1 id="using-loc-for-filtering-rows">Using loc for filtering rows</h1>
+<p>condition = df['Order Quantity'] &gt; 3
+df.loc[condition]</p>
+<h1 id="or_1">or</h1>
+<p>df.loc[df['Order Quantity'] &gt; 3]
+dataframe with the Order Quantity &gt; 3</p>
+<h1 id="using-loc-for-filtering-rows_1">Using loc for filtering rows</h1>
+<p>df.loc[df['Customer Country'] == 'United States']
+dataframe with the Customer Country = United States
+iloc() : It filters rows by integer positions.</p>
+<h1 id="using-iloc-for-filtering-rows">Using iloc for filtering rows</h1>
+<p>df.iloc[[0, 2, 4]]
+rows with integer index 0, 2 and 4</p>
+<h1 id="using-iloc-for-filtering-rows_1">Using iloc for filtering rows</h1>
+<p>df.iloc[:3, :2]
+[ ] Bracket operator : It allows filtering rows based on a condition.
+Example: df[condition]</p>
+<h1 id="using-bracket-operator-for-filtering-rows-using-bracket-operator-for-fi">Using [] bracket operator for filtering rows# Using [] bracket operator for fi</h1>
+<p>condition = df['Order Quantity'] &gt; 3
+df[condition]</p>
+<h1 id="or_2">or</h1>
+<p>df[df['Order Quantity'] &gt; 3]
+dataframe with the order quantity &gt; 3
+isin([ ]) : It is used to filter data based on a list.
+Example: df[df['column_name'].isin(['value1', 'value2'])]</p>
+<h1 id="using-isin-for-filtering-rows">Using isin for filtering rows</h1>
+<p>df[df['Customer Country'].isin(['United States', 'Puerto Rico'])]
+rows where column ‘Customer Country’ is ‘United States’ or ‘Puerto Rico’</p>
+<h1 id="filter-rows-based-on-values-in-a-list-and-select-spesific-columns">Filter rows based on values in a list and select spesific columns</h1>
+<p>df[["Customer Id", "Order Region"]][df['Order Region'].isin(['Central America', 
+it selected Customer Id and Order Region columns, where Order Region is Central America or Caribbean</p>
+<h1 id="using-not-isin-for-filtering-rows">Using NOT isin for filtering rows</h1>
+<p>df[~df['Customer Country'].isin(['United States'])]
+rows where column ‘Customer Country’ is NOT ‘United States’
+query() : This method is used to select data based on a SQL-like
+expression.
+Example: df.query('condition')
+In case your column names contain spaces or special characters, first you
+should use the rename() function to rename them.</p>
+<h1 id="rename-the-columns-before-performing-the-query">Rename the columns before performing the query</h1>
+<p>df.rename(columns={'Order Quantity' : 'Order_Quantity', "Customer Fname" : "Cust</p>
+<h1 id="using-query-for-filtering-rows-with-a-single-condition">Using query for filtering rows with a single condition</h1>
+<p>df.query('Order_Quantity &gt; 3')
+dataframe with the order quantity &gt; 3</p>
+<h1 id="using-query-for-filtering-rows-with-multiple-conditions">Using query for filtering rows with multiple conditions</h1>
+<p>df.query('Order_Quantity &gt; 3 and Customer_Fname == "Mary"')
+dataframe with the order quantity &gt; 3 and Customer Fname = Mary
+between() : Filters rows based on values that fall within a specified range.
+Example: df[df['column_name'].between(start, end)]</p>
+<h1 id="filter-rows-based-on-values-within-a-range">Filter rows based on values within a range</h1>
+<p>df[df['Order Quantity'].between(3, 5)]
+dataframe with the order quantity between 3 and 5
+String methods : Filters rows based on string matching conditions.
+Example: str.startswith(), str.endswith(), str.contains()</p>
+<h1 id="using-strstartswith-for-filtering-rows">Using str.startswith() for filtering rows</h1>
+<p>df[df['Category Name'].str.startswith('Cardio')]</p>
+<h1 id="using-strcontains-for-filtering-rows">Using str.contains() for filtering rows</h1>
+<p>df[df['Customer Segment'].str.contains('Office')]
+3. Updating Values
+loc[ ] : This accessor selects specific rows and columns in the DataFrame
+and assigns new values.</p>
+<h1 id="update-values-in-a-column-based-on-a-condition">Update values in a column based on a condition</h1>
+<p>df.loc[df['Customer Country'] == 'United States', 'Customer Country'] = 'USA'
+It changed the United Stated to USA, in Customer Country column
+iloc[ ] : This accessor selects specific rows and columns in the DataFrame
+and assigns new values.</p>
+<h1 id="update-values-in-a-column-based-on-a-condition_1">Update values in a column based on a condition</h1>
+<p>df.iloc[df['Order Quantity'] &gt; 3, 15] = 'greater than 3'</p>
+<h1 id="or_3">or</h1>
+<p>condition = df['Order Quantity'] &gt; 3
+df.iloc[condition, 15] = 'greater than 3'
+It changed the values greater than 3 in Order Quantity column to “greater than 3” text
+replace() : It replaces specific values in a DataFrame with new values.
+Ex: df.['column_name'].replace(old_value, new_value, inplace=True)</p>
+<h1 id="replace-specific-values-in-a-column">Replace specific values in a column</h1>
+<p>df['Order Quantity'].replace(5, 'equals 5', inplace=True)
+It changed the “5” to “equals 5” in Order Quantity column
+Conclusion
+Python pandas provides several functions and techniques for selecting and
+filtering data within a DataFrame.
+By mastering these techniques, you’ll be well-equipped to explore and
+analyze your data effectively.
+Remember, practice makes perfect.
+Thank you for reading!
+Python Fundamentals
+🚀
+Thank you for your time and interest! 
+💫
+You can find even more content at Python Fundamentals 
+Python Data Science Data Analysis Data Analytics Data Scientist
+Published in Towards Dev
+Follow
+6.3K Followers · Last published 17 hours ago
+A publication for sharing projects, ideas, codes, and new theories.
+Written by Python Fundamentals
+Following
+2.5K Followers · 1.1K Following
+Learn Python with new contents every day
+No responses yet
+What are your thoughts?
+Respond
+More from Python Fundamentals and Towards Dev
+In Python in Plain English by Python Fundamentals In Towards Dev by AshokReddy
+Selecting and Filtering Data in Swagger UI is Gone in .NET 9:
+Python Pandas: loc and iloc Here’s What You Need to Do Next
+Python pandas library provides several Introduction:
+methods for selecting and filtering data, suc…
+Jan 27 12 Jan 27 66 2
+In Towards Dev by Bill WANG Python Fundamentals
+Running DeepSeek R1 Locally on 10 Useful Python Pandas Functions
+Mac in Two Simple Commands for Data Exploration
+Follow up on my DeepSeek blogs about Data exploration and data understanding are
+crucial steps to take before diving into data…
+Jan 26 79 4 May 4, 2024 20
+See all from Python Fundamentals See all from Towards Dev
+Recommended from Medium
+J. Aashish Kumar
+Building a Data Pipeline with 25 Amazing Python Tricks That
+Python: A Step-by-Step Guide to… Will Instantly Improve Your Code
+Photo by Tudor Baciu on Unsplash
+Nov 4, 2024 21 Feb 17 1
+Lists
+Predictive Modeling w/ Coding &amp; Development
+Python
+11 stories · 1016 saves
+20 stories · 1838 saves
+Practical Guides to Machine ChatGPT prompts
+Learning
+51 stories · 2599 saves
+10 stories · 2214 saves
+PURRFECT SOFTWARE LIMITED In Stackademic by Khouloud Haddad Amamou
+10 Python Libraries for Web Data Analysis with Python Pandas
+Scraping That Changed the Game… and Matplotlib
+Join Me as I Share the Essential Python 1. Introduction
+Libraries That Made Web Scraping a Breeze
+Feb 16 10 Jan 30 150 8
+In Python in Plain English by Kiran Maan Ime Eti-mfon
+Don’t Use This Way to Copy the Data Wrangling with Python
+Objects in Python
+Merging, Joining, and Concatenating Data
+You won’t regret learning this!!!
+Feb 17 187 Nov 7, 2024 10 1
+See more recommendations</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "toc.follow", "content.tooltips", "content.code.highlight", "content.grid"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

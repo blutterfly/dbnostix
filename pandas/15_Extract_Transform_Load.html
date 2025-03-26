@@ -1,0 +1,2374 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>15 Extract Transform Load - DBNOSTIX</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cerulean/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#read-data-from-a-csv-file" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DBNOSTIX" class="md-header__button md-logo" aria-label="DBNOSTIX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DBNOSTIX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              15 Extract Transform Load
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  Dbnostix
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../services/database_infrastructure.html" class="md-tabs__link">
+          
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../python/00_landing.html" class="md-tabs__link">
+          
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="contents.html" class="md-tabs__link">
+          
+  
+  Pandas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../algotrade/algotrade.html" class="md-tabs__link">
+          
+  
+  AlgoTrade
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../options/contents.html" class="md-tabs__link">
+          
+  
+  Options
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../database/database.html" class="md-tabs__link">
+          
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mkdocs/mkdocs.html" class="md-tabs__link">
+          
+  
+  MkDocs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DBNOSTIX" class="md-nav__button md-logo" aria-label="DBNOSTIX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DBNOSTIX
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dbnostix
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Dbnostix
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/about.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/contact.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/services.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/database_infrastructure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/data_science.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/predictive_modeling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/large_language_model.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large Language Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_landing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_Contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_Contents_Jazzy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python for Data Science &amp; Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/01_Overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 📘 Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/02_Setup_Installation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 🛠️ Setup and Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/03_Core_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 ⚙️ Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/04_Advanced_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 ⚡ Advanced Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/05_Syntax_and_Variables.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 📝 Syntax and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/06_Control_Flow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 🔄 Control Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/07_Data_Structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 🎒 Data Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/08_Functions_and_Modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 🎭 Functions and Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/09_Object-Oriented_Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 🏗️ Object-Oriented
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/10_Python_Standard_Library.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 🧰 Python Standard Library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/11_File_Handling_and_IO.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 🌐 File Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/12_Exception_Handling_and_Debugging.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 ⚡ Errors and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/13_Web_Development.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13 📡 Web Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/14_Data_Science.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14 📊 Data Science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/15_Machine_Learning_and_AI.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15 🧠 Machine Learning and AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/16_Predictive_Modeling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16 🔮 Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/17_Databases.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17 🏛️ Databases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/17x_Examples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Real-World Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/pandas.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/yfinance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Yfinance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/best_practice.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pandas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pandas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="select_filter.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Select and Filter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="generate_data.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cheat_sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="list_function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quick_examples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="numpy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NumPy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="skimpy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skimpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="summarizer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SummaryTools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="profiling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profiling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="google_sheets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Sheets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="advanced_techniques.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AlgoTrade
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AlgoTrade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/algotrade.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algotrade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/extract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/transform.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/load.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Options
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../options/contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../options/strangle_strategy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Strangle Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/database.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/db2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Db2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/postgresql.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Postgresql
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/duckdb.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Duckdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            MkDocs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/mkdocs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/admonitions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admonitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/collapsible_sections.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collapsible Sections
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>Open in app
+Search Write
+Five Common Python Libraries for
+ETL Processing
+Gen. David L. · Follow
+5 min read · Dec 10, 2024
+130 3
+ETL is a critical concept in data warehousing technology, representing three
+main processing steps: Extract, Transform, and Load. ETL is commonly used
+for data integration, merging data from various sources into a unified view
+for analysis and reporting.
+ETL Detailed Process
+1. Extract (E):
+This step involves extracting data from various sources, which could include
+relational databases, file systems, cloud storage, or APIs. The extraction
+process may involve copying or moving data and recognizing and parsing its
+format.
+2. Transform (T):
+Once the data is extracted, it usually needs to be transformed into a format
+suitable for analysis. This process may include:
+Data cleansing (e.g., removing duplicates, correcting errors, and
+resolving inconsistencies).
+Data aggregation (e.g., calculating sums, averages, maximum/minimum
+values).
+Data normalization (e.g., converting data into a unified format or unit).
+Data enrichment (e.g., adding additional contextual information).
+The transformation step is the most critical part of ETL as it directly affects
+the quality and usability of the data in the final data warehouse.
+3. Load (L):
+The loading step involves writing the transformed data into the target
+system, which could be a data warehouse, data lake, data mart, or another
+form of data storage. During this step, the data may be indexed, partitioned,
+or archived to optimize query performance and storage efficiency.
+ETL processes can be either batch-based or real-time. Batch ETL typically
+runs at scheduled intervals, such as daily, weekly, or monthly, whereas real-
+time ETL requires the system to continuously process and update data.
+Common Python ETL Libraries
+1. Pandas
+Advantages: Pandas provides data structures and analytical tools that are
+highly suitable for data cleaning and transformation. It simplifies data
+manipulation tasks in the ETL process, such as adding new columns and
+filtering data.
+Disadvantages: Pandas may encounter performance bottlenecks when
+handling large datasets, as it primarily operates on in-memory data.
+Use Cases: Suitable for small to medium-sized datasets and for rapid
+prototyping.
+Code Example:
+import pandas as pd</p>
+<h1 id="read-data-from-a-csv-file">Read data from a CSV file</h1>
+<p>df = pd.read_csv('my_example.csv')</p>
+<h1 id="data-transformation-such-as-adding-a-new-column">Data transformation, such as adding a new column</h1>
+<p>df['new_A_column'] = df['existing_A_column'].apply(lambda x: x * 5.4)</p>
+<h1 id="save-the-transformed-data-to-a-new-csv-file">Save the transformed data to a new CSV file</h1>
+<p>df.to_csv('transformed_example.csv', index=False)
+2. Apache Spark (PySpark)
+Advantages: Apache Spark is a unified analytics engine designed for large-
+scale data processing. The PySpark API makes it simple to handle Spark jobs
+within Python workflows.
+Disadvantages: Compared to Pandas, Spark has a steeper learning curve and
+requires more resources for setup and operation.
+Use Cases: Ideal for processing large datasets, especially in distributed
+computing environments.
+Code Example:
+from pyspark.sql import SparkSession</p>
+<h1 id="initialize-a-spark-session">Initialize a Spark session</h1>
+<p>spark = SparkSession.builder.appName('etl_example').getOrCreate()</p>
+<h1 id="read-data-from-a-csv-file_1">Read data from a CSV file</h1>
+<p>df = spark.read.csv('input_example_data.csv', header=True, inferSchema=True)</p>
+<h1 id="data-transformation">Data transformation</h1>
+<p>df = df.withColumn('new_A_column', df['existing_A_column'] * 5.4)</p>
+<h1 id="write-the-data-to-a-new-csv-file">Write the data to a new CSV file</h1>
+<p>df.write.csv('output_example_data.csv')
+3. Haul
+Advantages: Haul is a lightweight and modular Python library designed
+specifically for ETL tasks. It focuses on simplifying data extraction,
+transformation, and loading by providing clean, reusable components that
+integrate seamlessly into modern workflows.
+Disadvantages: Haul is relatively new and less feature-rich compared to
+more established ETL frameworks like Airflow or Luigi. It may not be
+suitable for highly complex ETL pipelines or large-scale distributed systems.
+Use Cases: Ideal for small to medium-sized ETL workflows, rapid
+prototyping, and scenarios requiring flexibility and simplicity.
+Code Example:
+from haul import Extractor, Transformer, Loader</p>
+<h1 id="define-an-extractor-to-load-data-from-a-csv-file">Define an extractor to load data from a CSV file</h1>
+<p>extractor = Extractor.from_csv('input_example_data.csv')</p>
+<h1 id="define-a-transformer-to-add-a-new-column">Define a transformer to add a new column</h1>
+<p>class MultiplyTransformer(Transformer):
+    def transform(self, row):
+        row['new_A_column'] = row['existing_A_column'] * 5.4
+        return row
+transformer = MultiplyTransformer()</p>
+<h1 id="define-a-loader-to-save-the-data-to-a-new-csv-file">Define a loader to save the data to a new CSV file</h1>
+<p>loader = Loader.to_csv('output_example_data.csv')</p>
+<h1 id="execute-the-etl-process">Execute the ETL process</h1>
+<p>etl_pipeline = extractor | transformer | loader
+etl_pipeline.run()
+4. Luigi
+Advantages: Luigi is a Python library designed for building complex batch
+job pipelines. It handles dependency resolution, workflow management,
+visualization, and failure handling.
+Disadvantages: Luigi does not automatically synchronize tasks to worker
+nodes and lacks built-in scheduling, alerting, or monitoring features.
+Use Cases: Suitable for automating simple ETL workflows, such as log
+processing.
+Code Example:
+from luigi import Task, ExternalTask, Parameter, LocalTarget<br />
+import pandas as pd  </p>
+<h1 id="define-a-task-to-extract-data-from-a-source-url">Define a task to extract data from a source URL</h1>
+<p>class ExtractData(Task):
+    source_url = Parameter()  # Define a parameter for the source URL of the dat
+    def run(self):
+        # Read data from the source URL into a pandas DataFrame
+        df = pd.read_csv(self.source_url)
+        # Write the DataFrame to a CSV file at the specified output location
+        self.output().open('w').write(df.to_csv(index=False))
+    def output(self):
+        # Define the output target for this task (a local CSV file)
+        return LocalTarget('output_data_example.csv')</p>
+<h1 id="define-a-task-to-transform-the-data">Define a task to transform the data</h1>
+<p>class TransformData(ExternalTask):<br />
+    source_url = Parameter()  # Define a parameter for the source URL of the inp
+    def run(self):
+        # Read data from the source URL into a pandas DataFrame
+        df = pd.read_csv(self.source_url)
+        # Perform a hypothetical transformation: adding a new column
+        df['new_A_column'] = df['existing_A_column'] * 5.4
+        # Write the transformed DataFrame to a CSV file at the specified output 
+        self.output().open('w').write(df.to_csv(index=False))
+    def output(self):
+        # Define the output target for this task (a transformed local CSV file)
+        return LocalTarget('transformed_example_data.csv')</p>
+<h1 id="main-entry-point-for-luigi-tasks">Main entry point for Luigi tasks</h1>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+    # Run the TransformData task, which depends on 'example_data.csv' as input
+    luigi.build([TransformData('example_data.csv')])
+5. Airflow
+Advantages: Apache Airflow is a powerful workflow orchestration tool,
+allowing users to programmatically author, schedule, and monitor
+workflows. Its flexibility and modular architecture make it ideal for creating
+complex ETL pipelines that can handle dependencies and integrate with
+various data sources.
+Disadvantages: Airflow has a steep learning curve, especially for users
+unfamiliar with its DAG (Directed Acyclic Graph) paradigm. Additionally, it
+requires careful setup and maintenance, as scaling can introduce
+performance and resource challenges.
+Use Cases: Best suited for orchestrating ETL workflows in environments
+with multiple steps or dependencies. It is particularly effective for managing
+workflows in distributed or cloud-based systems.
+Code Example:
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime</p>
+<h1 id="define-the-etl-functions">Define the ETL functions</h1>
+<p>def extract():
+    print("Extracting data...")
+    print("more code here to do extract job")
+def transform():
+    print("Transforming data...")
+    print("more code here to do transform job")
+def load():
+    print("Loading data...")
+    print("more code here to do load job")</p>
+<h1 id="initialize-the-dag">Initialize the DAG</h1>
+<p>default_args = {
+    'owner': 'airflow',
+    'start_date': datetime(2024, 1, 1),
+    'retries': 1,
+}
+dag = DAG(
+    'example_etl',
+    default_args=default_args,
+    schedule_interval='@daily',
+)</p>
+<h1 id="define-the-tasks">Define the tasks</h1>
+<p>extract_task = PythonOperator(task_id='extract', python_callable=extract, dag=da
+transform_task = PythonOperator(task_id='transform', python_callable=transform, 
+load_task = PythonOperator(task_id='load', python_callable=load, dag=dag)</p>
+<h1 id="set-task-dependencies">Set task dependencies</h1>
+<p>extract_task &gt;&gt; transform_task &gt;&gt; load_task
+Summary
+These libraries and tools each have their strengths, and the choice of which
+to use depends on the specific project requirements, data scale, and the
+familiarity of the development team.
+The ETL process forms the foundation of data management and analysis,
+ensuring data consistency, accuracy, and availability. This enables data
+analysis and business intelligence (BI) tools to deliver valuable insights and
+support decision-making.
+With technological advancements, the ETL process continues to evolve,
+giving rise to variations like ELT (Extract, Load, Transform), where data is
+first loaded into the target system before transformation. This approach can
+improve efficiency when dealing with large-scale datasets.
+Thanks for your reading.
+Python Etl Etl Tool Etl Pipeline Python Data Preprocessing
+Written by Gen. David L.
+Follow
+453 Followers · 4 Following
+AI practitioner &amp; python coder to record what I learned in python project
+development
+Responses (3)
+What are your thoughts?
+Respond
+david libert (“dadoo”)
+29 days ago
+Hello thank you. You forgot Mage.ai, very cool and strong solution 😉
+4 Reply
+Dinu Gherman
+27 days ago
+Missing prefect.io.
+2 Reply
+R. Ganesh
+16 days ago
+these frameworks not libraries
+Reply
+More from Gen. David L.
+Gen. David L. Gen. David L.
+Advanced Pandas Features: ETL-PIPES: An Efficient Python ETL
+Enhance Your Data Processing… Data Processing Library
+The essence of data analysis lies in ETL-pipes is a powerful and flexible Python
+uncovering the stories behind the data. In thi… library specifically designed for ETL (Extract…
+Dec 5, 2024 105 Nov 30, 2024 45 6
+Gen. David L. Gen. David L.
+How to Map Column Values in a Must-Know Python Pandas
+Pandas DataFrame? Functions for Effortless Data…
+Mapping column values refers to replacing The key point of data analysis lies in
+specific values in a column with other values,… uncovering the stories behind the data. To…
+Dec 24, 2024 81 Nov 27, 2024 19
+See all from Gen. David L.
+Recommended from Medium
+Harold Finch Vijay Gadhave
+Top 25 Python Scripts To Automate Must-Have Data Engineering
+Your Daily Tasks Certifications
+Python is an excellent tool for automating Note: If you’re not a medium member, CLICK
+daily tasks, thanks to its simplicity and a wid… HERE
+Nov 19, 2024 337 5 Dec 3, 2024 300 5
+Lists
+Staff picks Stories to Help You Level-Up
+at Work
+798 stories · 1568 saves
+19 stories · 916 saves
+Self-Improvement 101 Productivity 101
+20 stories · 3214 saves 20 stories · 2716 saves
+In Wren AI by Howard Chi Varun Singh
+How Uber is Saving 140,000 Hours Python 3.14 Released — Top 5
+Each Month Using Text-to-SQL — … Features You Must Know
+Discover how Uber’s Text-to-SQL technology Faster Annotations &amp; Mind-Blowing Updates
+streamlines data queries and learn how to… You NEED to Know!
+Jan 2 405 7 Dec 31, 2024 613 4
+Sai Parvathaneni Esra Soylu
+Data Quality Checks (DQCs): A Advanced SQL Techniques
+Guide for Data Engineers
+In this article, we will focus on advanced SQL
+As a data engineer in financial services, I’ve techniques. I will try to explain the methods…
+learned one critical lesson: the quality of you…
+Dec 8, 2024 62 2 Nov 23, 2024 263 3
+See more recommendations</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "toc.follow", "content.tooltips", "content.code.highlight", "content.grid"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

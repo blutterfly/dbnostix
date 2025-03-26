@@ -1,0 +1,2677 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="summarizer.html">
+      
+      
+        <link rel="next" href="google_sheets.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>Profiling - DBNOSTIX</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cerulean/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#profiling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DBNOSTIX" class="md-header__button md-logo" aria-label="DBNOSTIX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DBNOSTIX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Profiling
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  Dbnostix
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../services/database_infrastructure.html" class="md-tabs__link">
+          
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../python/00_landing.html" class="md-tabs__link">
+          
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="contents.html" class="md-tabs__link">
+          
+  
+  Pandas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../algotrade/algotrade.html" class="md-tabs__link">
+          
+  
+  AlgoTrade
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../options/contents.html" class="md-tabs__link">
+          
+  
+  Options
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../database/database.html" class="md-tabs__link">
+          
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mkdocs/mkdocs.html" class="md-tabs__link">
+          
+  
+  MkDocs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DBNOSTIX" class="md-nav__button md-logo" aria-label="DBNOSTIX" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DBNOSTIX
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dbnostix
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Dbnostix
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/about.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/contact.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dbnostix/services.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/database_infrastructure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/data_science.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/predictive_modeling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/large_language_model.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large Language Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_landing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_Contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/00_Contents_Jazzy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python for Data Science &amp; Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/01_Overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 📘 Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/02_Setup_Installation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 🛠️ Setup and Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/03_Core_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 ⚙️ Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/04_Advanced_Concepts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 ⚡ Advanced Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/05_Syntax_and_Variables.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 📝 Syntax and Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/06_Control_Flow.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 🔄 Control Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/07_Data_Structures.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 🎒 Data Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/08_Functions_and_Modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 🎭 Functions and Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/09_Object-Oriented_Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 🏗️ Object-Oriented
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/10_Python_Standard_Library.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 🧰 Python Standard Library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/11_File_Handling_and_IO.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 🌐 File Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/12_Exception_Handling_and_Debugging.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 ⚡ Errors and Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/13_Web_Development.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13 📡 Web Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/14_Data_Science.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14 📊 Data Science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/15_Machine_Learning_and_AI.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15 🧠 Machine Learning and AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/16_Predictive_Modeling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16 🔮 Predictive Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/17_Databases.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17 🏛️ Databases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/17x_Examples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Real-World Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/pandas.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/yfinance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Yfinance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/best_practice.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Pandas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pandas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="select_filter.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Select and Filter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="generate_data.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cheat_sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="list_function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quick_examples.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="numpy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NumPy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="skimpy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skimpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="summarizer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SummaryTools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="profiling.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Profiling
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="google_sheets.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Sheets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="advanced_techniques.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AlgoTrade
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AlgoTrade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/algotrade.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algotrade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/extract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/transform.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algotrade/load.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Options
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../options/contents.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../options/strangle_strategy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Strangle Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/database.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/db2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Db2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/postgresql.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Postgresql
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/duckdb.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Duckdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            MkDocs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/mkdocs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/admonitions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admonitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/collapsible_sections.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collapsible Sections
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="profiling">Profiling</h1>
+<p>TODO:  Use chatgpt to generate content</p>
+<ul>
+<li>Generate Reports Using Pandas Profiling, </li>
+<li>Deploy Using Streamlit
+Kaustubh Gupta 7
+Last Updated : 23 Oct, 2024
+Pandas library offers a wide range of functions, making it an indispensable tool for
+data manipulation that caters to almost every task. One convenient feature, often
+employed for gaining quick insights into a dataset, is the pandas describe function.
+This function gives users a descriptive statistical summary of all the features, helping
+them understand the data’s overall characteristics. However, for a more
+comprehensive analysis, the pandas profiling Package is an additional valuable tool in
+the Pandas ecosystem.
+Pandas profiling is the solution to this problem. It offers report generation for the
+dataset with lots of features and customizations for the report generated. In this
+article, we will explore this library, look at all the features provided, and some
+advanced use cases and integrations that can be useful to create stunning reports out
+of the data frames!
+This article was published as a part of the Data Science Blogathon.
+Table of cWoen utsee ncotoskies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Accept all cookies Use necessary cookies
+Add MetaData
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Controlling parameters of the Report</li>
+<li>Integrations
+Widget  in Jupyter notebook</li>
+<li>How to Make it a Part of Streamlit App?
+Step 1: Install the streamlit_pandas_profiling
+Step 2: Create a Python file</li>
+<li>Conclusion
+Installation
+Like every other Python package, pandas profiling can be easily installed via the pip
+package manager:
+Copy Code
+pip install pandas-profiling
+It can also be installed via Conda package manager too:
+Copy Code
+conda env create -n pandas-profiling
+conda activate pandas-profiling
+conda install -c conda-forge pandas-profiling
+Dataset and Setup
+Now it’s time to see how to start the Python pandas profiling library and generate the
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+report out of the data frames. First things first,  let’s import a dataset for which we will
+Cookies Policy.
+be generatinSgh powro dfieleta rilesport. I am using the agriculture dataset which contains the
+State_name, District_name, Crop_year, Season, Crop, Area, and Production.
+Copy Code
+import pandPaesrs oansa lipzedd GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+df = pd.read_csv("crops data.csv")
+Before I discuss the Python pandas profiling, have a look at the pandas describe
+function output for the dataframe:
+Copy Code
+df.describe(include='all')
+(Notice that I have used the include parameter of the describe function set to “all”
+which forces pandas to include all the data types of the dataset to be included in the
+summary. The string type values are accompanied by options such as unique, top, and
+frequency)
+Let’s import the Python pandas profiling library:
+We use cookies essential for this site to function well. Please click to help us improve its
+Copy Code
+from pandasu_sperfuolnfeislsi wnigth  iadmdpiotiornta l Pcroookfieisl.e LReeaprno rabtout our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+To start profiling a dataframe, you have two ways:</li>
+<li>You can call the ‘.profile_report()’ function on pandas dataframe. This function is
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+not part of the pandas API but as soon as you import the profiling library, it adds
+this function to dataframe objects.
+You can pass the dataframe object to the profiling function and then call the
+function object created to start the generation of the profile.
+You will get the same output report in either of the methods. I am using the second
+method to generate the report for the imported agriculture dataset.
+Copy Code
+profile = ProfileReport(df)
+profile
+Animation Showing report generation
+Sections of the Report
+Now that the report is generated, let’s explore all the sections of the report one by one.
+Overview
+This section consists of the 3 tabs: Overview, Warnings, and Reproduction.
+We use cookies essential for this site to function well. Please click to help us improve its
+The Overview generated by pandas profiling provides a comprehensive dataset
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+summary, encompassing various key statistics. It covers the fundamental
+Show details
+characteristics such as the Number of variables (features or columns of the data
+frame) and the Number of observations (rows of the data frame). Additionally, it sheds
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+light on data quality by revealing insights into Missing cells and their corresponding
+percentage, offering a quick assessment of the dataset’s completeness. The Duplicate
+rows section provides information on the presence of identical rows, including the
+percentage of duplicate rows. As a holistic touch, the overview concludes with the total
+memory size, encapsulating the overall footprint of the dataset. Integrating pandas
+profiling seamlessly facilitates a profound understanding of these essential aspects,
+enhancing the efficiency of exploratory data analysis.
+The warnings tab contains any warnings related to cardinality, correlation with other
+variables, missing values, zeroes, skewness of the variables, and many others.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+The reproduction tab displays information related to the report generation. It shows
+the start and end times of the analysis, the time taken to generate the report, the
+software version of pandas profiling, and a configuration download option.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+We will discuss the configuration file in this article’s advanced use case section.
+Variables
+This section of the report gives a detailed analysis of all the
+variables/columns/features of the dataset. The information presented varies
+depending upon the data type of variable. Let’s break it down.
+Numeric Variables
+You get information about the distinct values, missing values, min-max, mean, and
+negative values count for numeric data type features. You also get small
+representation values in the form of a Histogram.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+The toggle button expands to the Statistics, Histogram, Common Values, and Extreme
+Values tabs.
+The statistics tab includes:</li>
+<li>Quantile statistics: Min-Max, percentiles, median, range, and IQR (Inter Quartile
+range)</li>
+<li>Descriptive statistics: Standard Deviation, Coefficient of variance, Kurtosis, mean,
+skewness, variance, and monotonicity.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+The histogram tab displays the frequency of variables or distribution of numeric data.
+The common values tab is basically value_counts of the variables presented as both
+counts and percentage frequency.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+String Variables
+For string-type variables, you get Distinct (unique) values, distinct percentages,
+missing missing percentages, memory size, and a horizontal bar presentation of all the
+unique values with count presentation.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+(It also reports any warnings associated with the variable irrespective of its data type)
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+The toggle button expands to the Overview, Categories, Words, and Characters
+tab. 
+The Overview tab displays the max-min median mean length, total characters, distinct
+characters, distinct categories, unique characters, and sample from the dataset for
+string type values.
+The categories tab displays a histogram and sometimes a pie chart of the feature’s
+value counts. The table contains the value, count, and percentage frequency.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+The words and the characters tab does the same job as the categories tab in terms of
+presenting the data in tabular and histogram format. Still, it can go much deeper into
+the lower case, upper case, punctuation, special characters categories count too!
+Correlations
+Correlation describes the degree to which two variables move in coordination with one
+another. The pandas profiling python report provides five types of correlation
+coefficients: Pearson’s r, Spearman’s ρ, Kendall’s τ, Phik (φk), and Cramér’s V (φc).
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+You can also click the toggle button for details about the correlation coefficients.
+Missing values
+The report generated also contains visualizations for the missing values in the dataset.
+You get three types of plots: count, matrix, and dendrogram. The count plot is a basic
+bar plot with an x-axis as column names, and the length of the bar represents the
+We use cookies essential for this site to function well. Please click to help us improve its
+number of vausluefeulsne spsr weisthe anddt it(iownaitl hcoooukite sn. uLella rvna albuouets o)u.r  uSsiem ofi lcaorolkyie,s t ihn eou mr Parivtaricxy  Paonlicdy  &amp;the
+Cookies Policy.
+dendrogram are.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Sample
+This section displays the first and last 10 rows of the dataset.
+How to Save the Report?
+So far, you’ve learned how to generate dataframe reports with a single line of code or
+function and explored the report’s included features. You may want to export this
+analysis to an external file for integration with other applications or web publishing
+We use cookies essential for this site to function well. Please click to help us improve its
+Guess what?us eYfuolnue scsa wnith s aaddviteio ntahl icso orkeieps.o Lreta! rYn oabuo uct aounr  ussae vofe c otohkiiess  rine opuor rPtr ivinac y– Policy &amp;
+Cookies Policy.
+Show details</li>
+<li>HTML format</li>
+<li>JSON format
+The save function remains the same for any of the formats. Change the file extension
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+while saving. To save the report, call the “.to_file()” function on the profile object:
+Copy Code
+profile.to_file("Analysis.html")
+profile.to_file("Analysis.json")
+Advanced Usage
+The report generated by Pandas profiling Python is a complete analysis without any
+input from the user except the dataframe object. All the report elements are chosen
+automatically, and default values are preferred.
+There might be some elements in the report that you don’t want to include, or you
+need to add your metadata for the final report. There comes the advanced usage of
+this library. You can control every aspect of your report by changing the default
+configurations.
+Let’s see some of how you can customize your reports.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Add MetaData
+Cookies Policy.
+Show details
+You can add information such as “title”, “description”, “creator”, “author”, “URL”,
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+“copyright_year”, and  “copyright_holder”. This information will appear in the dataset
+overview section. A new tab called “dataset” will be created for this metadata. To add
+this data to the report, use the dataset parameter in the ProfileReport function and
+pass this data as a dictionary:
+Copy Code
+profile = ProfileReport(df,
+                        title="Agriculture Data",
+        dataset={
+        "description": "This profiling report was generated for Analytics Vidhya Blog",
+        "copyright_holder": "Analytics Vidhya",
+        "copyright_year": "2021",
+        "url": "https://www.analyticsvidhya.com/blog/",
+    },)
+profile
+You can also add information about the variables used in the dataset using the
+variables parameter. This takes in the dictionary with descriptions as the key and
+value as another dictionary with a key-value pair, where the key is the variable name
+and the value is the description of the variable.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Copy Code
+variables={
+Cookies Policy.
+        "descriptions": {
+Show details
+            "State_Name": "Name of the state",
+            "District_Name": "Name of district",
+            "Crop_Year": "Year when it was seeded",
+            "Season": "Crop year",
+           P e"rsCornoapli"ze:d  "GWehniAcI hLe acrrnoinpg  Pwaatsh  2s0e25e✨de dC?"ra,fted Just for YOU!<br />
+            "Area": "How much area was allocated to the crop?",
+            "Production": "How much production?",
+        }
+    }
+When you add this to your ProfileReport function, a separate tab will be created
+named “Variables” under the overview section:
+Controlling parameters of the Report
+Suppose you don’t want to display all types of correlation coefficients. You can disable
+other coefficients by using the configuration for correlations. This is also a dictionary
+object and can be passed to the ProfileReport function:
+We use cookies essential for this site to function well. Please click to help us improve its
+Copy Code
+profile = ProfileReport(df,
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+           C o o k ie s  P o l ic y.   title="Agriculture Data",
+           S  h o w   d e t a i ls  correlations={
+                                        "pearson": {"calculate": True},
+                                        "spearman": {"calculate": False},
+                                        "kendall": {"calculate": False},
+                                        "phi_k": {"calculate": False},
+    }) Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Similarly, you can customize every report section, the HTML format, plots, and
+everything.
+“
+Check out this page of the documentation for details.
+Integrations
+After making your reports stunning by configuring every aspect of it, you might want to
+publish it anyhow. You can export it to HTML format and upload it to the web. But there
+are some other methods to make your report stand out.
+Widget  in Jupyter notebook
+While running the panda profiling in your Jupyter notebooks, you will get the HTML
+rendered in the code cell only. This disturbs the experience of the user. You can make
+it act like a widget that is easily accessible and offers a compact view. To do this,
+simply call “.to_widgets()” on your profile object:
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+How to Make it a Part of Streamlit App?
+Yes! You can make this report as a part of a streamlit app, too. Streamlit is a powerful
+package that enables GUI web app building with minimal code. The applications are
+interactive and compatible with almost every device. You can make your reports as a
+part of the streamlit app by following this code:
+Step 1: Install the streamlit_pandas_profiling 
+Copy Code
+pip install streamlit-pandas-profiling
+Step 2: Create a Python file
+Create a python file and write code in this format:
+We use cookies essential for this site to function well. Please click to help us improve its
+Copy Code
+import panduasse fualnse spsd with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+import pandSash_opwr odfeitlaiilnsg
+import streamlit as st
+from streamlit_pandas_profiling import st_profile_report
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+from pandas_profiling import ProfileReport
+df = pd.read_csv("crops data.csv", na_values=['='])
+profile = ProfileReport(df,
+                        title="Agriculture Data",
+        dataset={
+        "description": "This profiling report was generated for Analytics Vidhya Blog",
+        "copyright_holder": "Analytics Vidhya",
+        "copyright_year": "2021",
+        "url": "https://www.analyticsvidhya.com/blog/",
+    },
+    variables={
+        "descriptions": {
+            "State_Name": "Name of the state",
+            "District_Name": "Name of district",
+            "Crop_Year": "Year when it was seeded",
+            "Season": "Crop year",
+           W "eC ursoep c"o:o ki"eWs heisscehn ticarl foopr  thwias ss ites etoe fduendct?io"n, well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+            "Area": "How much area was allocated to the crop?",
+Show details
+            "Production": "How much production?",
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+        }
+    }
+)
+st.title("Pandas Profiling in Streamlit!")
+st.write(df)
+st_profile_report(profile)
+Step 3: Run your streamlit app
+In the terminal, type:
+streamlit run .py
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Exploratory Data Analysis Using Pandas
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Exploratory Data Analysis (EDA) is like exploring a new place. You start by looking
+around to understand what’s there. Similarly, in EDA, you look at a dataset to see
+what’s in it and what it can tell you. It’s essentially the initial data exploration stage in
+data science, where you delve into the dataset statistics and examine its intricacies.
+Here’s what you do during EDA:
+Look at the Numbers: You start by checking basic things like averages, ranges,
+and the spread of the numbers.
+Make Pictures: Instead of just staring at numbers, you make charts and graphs to
+show the data visually. It’s like drawing a map of your exploration.
+Clean Up: Sometimes, data can be messy with missing pieces or weird values.
+So, you clean it up by filling in missing parts or removing the weird stuff.
+Create New Ideas: You might develop new ideas or ways to look at the data, like
+combining different parts or changing how you measure things.
+Find Connections: You try to see if different parts of the data are related. For
+example, if one thing goes up, does another also go up?
+Make Things Simple: If the data is too complicated, you might simplify it to see
+the big picture more clearly.
+Look at Time: If your data changes over time, you’ll examine how it changes and
+whether there are any repeating patterns.
+We use cookies essential for this site to function well. Please click to help us improve its
+Test Ideuassef:u lFneisnsa wliltyh, a yddoituio ntael scoto ykioesu. rL eiadrne aabso utto o usr eusee  ioff  cthooekyie sm ina okure P rsiveacnys Peo liacyn &amp;d if the
+Cookies Policy.
+patterns you see are real or just random.
+Show details
+Overall, EDA helps you understand your data better before doing any fancy analysis or
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+making big conclusions. It’s like exploring a map before going on a big adventure!
+Conclusion
+In this article, you are introduced to a new tool, “Pandas Profiling,” a one-stop solution
+for generating reports out of the Pandas dataframe. We explore all the features of this
+tool, different sections, and their content. Then, we move on to saving the report
+generated. Later, we look at some of the advanced use cases of this library and finally
+integrate the Streamlit app to make the reports more promising and interactive.
+The media shown in this article are not owned by Analytics Vidhya and are used
+at the Author’s discretion.
+Kaustubh Gupta
+Kaustubh Gupta is a skilled engineer with a B.Tech in Information Technology from
+Maharaja Agrasen Institute of Technology. With experience as a CS Analyst and
+Analyst Intern at Prodigal Technologies, Kaustubh excels in Python, SQL, Libraries,
+and various engineering tools. He has developed core components of product intent
+engines, created gold tables in Databricks, and built internal tools and dashboards
+using Streamlit and Tableau. Recognized as India’s Top 5 Community Contributor
+2023 by Analytics Vidhya, Kaustubh is also a prolific writer and mentor, contributing
+significantly to the tech community through speaking sessions and workshops.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Data Engineering Data Exploration Data Visualization Intermediate
+Listicle Machine Learning Project Python Python Streamlit
+Structured Data Technique
+Free Courses
+ 4.7
+Generative AI - A Way of Life
+Explore Generative AI for beginners: create text and images, use top AI tools, learn practical skills, and
+ethics.
+ 4.5
+Getting Started with Large Language Models
+Master Large Language Models (LLMs) with this course, offering clear guidance in NLP and model
+training made simple.
+We use cookies e s4s.e6ntial for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Building LLM Applications using Prompt Engineering
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+This free course guides you on building LLM apps, mastering prompt engineering, and developing
+chatbots with enterprise data.
+ 4.8
+Improving Real World RAG Systems: Key Challenges &amp; Practical Solutions
+Explore practical solutions, advanced retrieval strategies, and agentic RAG systems to improve context,
+relevance, and accuracy in AI-driven applications.
+ 4.7
+Microsoft Excel: Formulas &amp; Functions
+Master MS Excel for data analysis with key formulas, functions, and LookUp tools in this comprehensive
+course.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Responses From Readers
+What are your thoughts?...
+Submit reply
+Santosh Kesava
+Hi , This is really a informative post thank you for posting.
+My scenario is same but the only missing part is how to
+We uscer ceoaotkeie sa e tsasebn twiailt fho rc thoims spitlee ttoe f udnacttiaon a wnedll.  bPuletatsoen c lticok  dtoo hwenlpl ousa idm pinrove its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+excel or csv ? Please help. Thank you Santosh Kesava
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Niladri Chakraborty
+Nice article. I'm trying to run pandas profiling in my python
+3.8.x version. But I'm getting error message saying
+PydanticImportError: BaseSettingshas been moved to
+thepydantic-settings package while I'm running from
+pandas_profiling import ProfileReport. Can you please
+guide me to resolve the issue?
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Frequently Asked Questions
+How to use pandas-profiling?
+A. To use pandas-profiling, you should first install it using pip. Then, import it into your
+Python script or Jupyter Notebook. Load your dataset with Pandas, create a ProfileReport
+object, and call its to_file() or to_widgets() methods to obtain a detailed analysis and
+visualization of your data.
+What is Pandas profiling?
+Why use pandas profiling?
+Q4. How to pip install pandas-profiling?
+Write for us 
+Write, captivate, and earn accolades and rewards for your work
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Reach Cao Goklioesb Paol lAicyu.dience
+Get ExpSehrot wF edeedtabialsck
+Build Your Brand &amp; Audience
+Cash In on Your Knowledge
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Join a Thriving Community
+Level Up Your Data Science Game
+Flagship Courses
+GenAI Pinnacle Program | AI/ML BlackBelt Courses
+Free Courses
+Generative AI | Large Language Models | Building LLM Applications using Prompt Engineering |
+Building Your first RAG System using LlamaIndex | Stability.AI | MidJourney | Building Production
+Ready RAG systems using LlamaIndex | Building LLMs for Code | Deep Learning | Python |
+Microsoft ExcWele| u Msea ccohokiniees  eLseseanrtniailn fogr |th Dis esicteis tioo fnun Tctrioene wse|ll .P Palenadsea csl icfok rto D haeltpa u As inmaplryosveis its| Ensemble
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Learning | NLP | NLP using Deep Learning | Neural Networks | Loan Prediction Practice
+Cookies Policy.
+Problem | Time Series Forecasting | Tableau | Business Analytics
+Show details
+Popular Categories
+Generative AI | Prompt Engineering | Generative AI Application | News | Technical Guides | AI
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+Tools | Interview Preparation | Research Papers | Success Stories | Quiz | Use Cases | Listicles
+Generative AI Tools and Techniques
+GANs | VAEs | Transformers | StyleGAN | Pix2Pix | Autoencoders | GPT | BERT | Word2Vec |
+LSTM | Attention Mechanisms | Diffusion Models | LLMs | SLMs | StyleGAN | Encoder Decoder
+Models | Prompt Engineering | LangChain | LlamaIndex | RAG | Fine-tuning | LangChain AI
+Agent | Multimodal Models | RNNs | DCGAN | ProGAN | Text-to-Image Models | DDPM |
+Document Question Answering | Imagen | T5 (Text-to-Text Transfer Transformer) | Seq2seq
+Models | WaveNet | Attention Is All You Need (Transformer Architecture)
+Popular GenAI Models
+Llama 3.1 | Llama 3 | Llama 2 | GPT 4o Mini | GPT 4o | GPT 3 | Claude 3 Haiku | Claude 3.5
+Sonnet | Phi 3.5 | Phi 3 | Mistral Large 2 | Mistral NeMo | Mistral-7b | Gemini 1.5 Pro | Gemini
+Flash 1.5 | Bedrock | Vertex AI | DALL.E | Midjourney | Stable Diffusion
+Data Science Tools and Techniques
+Python | R | SQL | Jupyter Notebooks | TensorFlow | Scikit-learn | PyTorch | Tableau | Apache
+Spark | Matplotlib | Seaborn | Pandas | Hadoop | Docker | Git | Keras | Apache Kafka | AWS |
+NLP | Random Forest | Computer Vision | Data Visualization | Data Exploration | Big Data |
+Common Machine Learning Algorithms | Machine Learning
+Company Discover
+About Us Blogs
+Contact Us Expert Sessions
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Careers Learning Paths
+Cookies Policy.
+Show details
+Comprehensive Guides
+Learn Engage
+Free Courses Community
+Personalized GenAI Learning Path 2025✨  Crafted Just for YOU!<br />
+AI&amp;ML Program Hackathons
+GenAI Program Events
+Agentic AI Program Podcasts
+Contribute Enterprise
+Become an Author Our Offerings
+Become a Speaker Trainings
+Become a Mentor Data Culture
+Become an Instructor AI Newsletter
+Terms &amp; conditions   Refund Policy   Privacy Policy   Cookies Policy  © Analytics
+Vidhya 2025.All rights reserved.
+We use cookies essential for this site to function well. Please click to help us improve its
+usefulness with additional cookies. Learn about our use of cookies in our Privacy Policy &amp;
+Cookies Policy.
+Show details</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "toc.follow", "content.tooltips", "content.code.highlight", "content.grid"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
