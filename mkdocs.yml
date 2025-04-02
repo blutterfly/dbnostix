@@ -90,7 +90,9 @@ nav:
       - pandas/summarizer.md
       - pandas/profiling.md
       - pandas/google_sheets.md
-      - pandas/advanced_techniques.md                
+      - pandas/advanced_techniques.md
+      - pandas/dataframe_creation.md
+      - pandas/dataframe_tips.md                  
   - AlgoTrade:
       - algotrade/algotrade.md
       - algotrade/extract.md
@@ -104,6 +106,7 @@ nav:
       - database/db2.md
       - database/postgresql.md
       - database/duckdb.md
+      - database/duckdb_motherduck.md
   - MkDocs: 
       - mkdocs/mkdocs.md
       - mkdocs/admonitions.md
