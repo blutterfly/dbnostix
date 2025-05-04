@@ -47,7 +47,8 @@ nav:
       - dbnostix/contents.md
       - dbnostix/about.md
       - dbnostix/contact.md
-      - dbnostix/services.md      
+      - dbnostix/services.md
+      - dbnostix/help.md      
   - Services:
       - services/database_infrastructure.md
       - services/data_science.md
@@ -71,13 +72,15 @@ nav:
       - python/12_Exception_Handling_and_Debugging.md
       - python/13_Web_Development.md
       - python/14_Data_Science.md
-      - python/15_Machine_Learning_and_AI.md
+      - python/15_Machine_Learning_and_AI.md     
       - python/16_Predictive_Modeling.md
       - python/17_Databases.md
       - python/17x_Examples.md                                 
       - python/pandas.md
       - python/yfinance.md
       - python/best_practice.md
+      - python/f_strings.md
+      - python/list_function.md
   - Pandas:
       - pandas/contents.md
       - pandas/select_filter.md
@@ -92,7 +95,8 @@ nav:
       - pandas/google_sheets.md
       - pandas/advanced_techniques.md
       - pandas/dataframe_creation.md
-      - pandas/dataframe_tips.md                  
+      - pandas/dataframe_tips.md
+      - pandas/etl.md                  
   - AlgoTrade:
       - algotrade/algotrade.md
       - algotrade/extract.md
@@ -100,13 +104,19 @@ nav:
       - algotrade/load.md      
   - Options:
       - options/contents.md
-      - options/strangle_strategy.md    
+      - options/strangle_strategy.md
+  - AI:
+      - ai/mcp_ollama_build.md
+      - ai/mcp_server_build.md
+  - Cloud:
+      - cloud/oracle_cloud.md
   - Database:
       - database/database.md
       - database/db2.md
       - database/postgresql.md
       - database/duckdb.md
       - database/duckdb_motherduck.md
+      - database/duckdb_intro.md
   - MkDocs: 
       - mkdocs/mkdocs.md
       - mkdocs/admonitions.md
