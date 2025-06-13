@@ -1,6 +1,11 @@
-Here is a summarized step-by-step guide from the article **"How to build MCP server with Authentication in Python using FastAPI"** by Miki Makhlevich, including key code blocks:
+# Build MCP Server
 
----
+Summarized step-by-step guide from the article **"How to build MCP server with Authentication in Python using FastAPI"**  
+by Miki Makhlevich, including key code blocks:
+
+
+## Steps
+
 
 ### ✅ Step 0: Install Required Dependencies
 
@@ -181,6 +186,3 @@ mcp = FastApiMCP(
 mcp.mount()
 ```
 
----
-
-Let me know if you'd like a downloadable starter template or OAuth testing script.

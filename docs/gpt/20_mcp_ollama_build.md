@@ -1,4 +1,6 @@
-Here’s a concise summary of the implementation steps from the article **“Ollama + MCP Servers from Scratch”**, including key code blocks:
+# Build
+
+**“Ollama + MCP Servers from Scratch”**, including key code blocks:
 
 ---
 

@@ -105,9 +105,11 @@ nav:
   - Options:
       - options/contents.md
       - options/strangle_strategy.md
-  - AI:
-      - ai/mcp_ollama_build.md
-      - ai/mcp_server_build.md
+  - Gpt:
+      - gpt/00_gpt.md
+      - gpt/01_llm_mcp.md
+      - gpt/20_mcp_ollama_build.md
+      - gpt/20_mcp_server_build.md
   - Cloud:
       - cloud/oracle_cloud.md
   - Database:
