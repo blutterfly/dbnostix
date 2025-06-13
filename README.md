@@ -1,6 +1,6 @@
 # DBNOSTIX
 Dbnostix company Profile
-
+Public Url:  https://blutterfly.github.io/dbnostix/
 
 ## Domain Names
 [dynadot](https://www.dynadot.com/domain/whois)
