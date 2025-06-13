@@ -1,0 +1,70 @@
+# .github/workflows/mkdocs-manual.yml
+name: Manual MkDocs deploy
+
+on:
+  workflow_dispatch:          # ← manual trigger only
+    inputs:
+      full_rebuild:           # optional checkbox
+        description: 'Force a clean rebuild (ignore --dirty)?'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write             # OIDC for Pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the current commit
+      - uses: actions/checkout@v4
+
+      # 2. Pull back the last-published site so MkDocs sees unchanged HTML
+      - name: Restore previous site (if any)
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages          # artifact name used by Pages
+          path: site                  # put it where MkDocs expects output
+          if-no-artifact-found: ignore
+
+      # 3. Set up Python 3.11 and MkDocs
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+
+      - name: Install MkDocs & plugins
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs-material        # + your plugins
+
+      # 4. Decide whether to run incremental or clean build
+      - name: Choose build command
+        id: cfg
+        run: |
+          if [[ "${{ github.event.inputs.full_rebuild }}" == "true" ]]; then
+              echo "cmd=mkdocs build --clean --verbose" >> $GITHUB_OUTPUT
+          else
+              echo "cmd=mkdocs build --dirty --site-dir site --verbose" >> $GITHUB_OUTPUT
+          fi
+
+      # 5. Build the docs
+      - name: Build MkDocs
+        run: ${{ steps.cfg.outputs.cmd }}
+
+      # 6. Package site for GitHub Pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with: { path: site }
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
