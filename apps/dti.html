@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="algotrade.html">
-      
-      
-        <link rel="next" href="transform.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Extract - DBNOSTIX</title>
+        <title>Debt To Income - DBNOSTIX</title>
       
     
     
@@ -79,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extract" class="md-skip">
+        <a href="#debt-to-income" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extract
+              Debt To Income
             
           </span>
         </div>
@@ -251,13 +247,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="algotrade.html" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../algotrade/algotrade.html" class="md-tabs__link">
           
   
   AlgoTrade
@@ -1716,30 +1710,27 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1751,7 +1742,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             AlgoTrade
@@ -1765,7 +1756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="algotrade.html" class="md-nav__link">
+      <a href="../algotrade/algotrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1784,19 +1775,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="extract.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../algotrade/extract.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1806,7 +1788,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1819,7 +1800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="transform.html" class="md-nav__link">
+      <a href="../algotrade/transform.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1841,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="load.html" class="md-nav__link">
+      <a href="../algotrade/load.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2507,6 +2488,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-these-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why these keys?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2521,8 +2519,64 @@
 
 
 
-<h1 id="extract">Extract</h1>
-<p>Techniques and tools for extracting financial data.</p>
+<h1 id="debt-to-income">Debt To Income</h1>
+<p>Below is a concise “starter payload” you can use for a Debt-to-Income calculator.
+Each <strong>key</strong> is the dictionary field name the app expects from the user (or will populate after the computation); the <strong>value</strong> shown is just a placeholder illustrating the data type.</p>
+<div class="highlight"><pre><span></span><code><span class="n">dti_payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># --- identity / metadata (optional but handy) ---</span>
+    <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                <span class="c1"># str – internal identifier</span>
+    <span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>             <span class="c1"># str – optional display name</span>
+    <span class="s2">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>              <span class="c1"># str</span>
+
+    <span class="c1"># --- income ---</span>
+    <span class="s2">&quot;gross_monthly_income&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># float – pre-tax income for the month</span>
+
+    <span class="c1"># --- recurring monthly debt payments ---</span>
+    <span class="s2">&quot;monthly_rent_or_mortgage&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="s2">&quot;auto_loan_payments&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="s2">&quot;student_loan_payments&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="s2">&quot;credit_card_payments&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># total of all cards’ minimums</span>
+    <span class="s2">&quot;personal_loan_payments&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="s2">&quot;child_support_alimony&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="s2">&quot;other_debt_payments&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>   <span class="c1"># catch-all for anything not listed above</span>
+
+    <span class="c1"># --- output ---</span>
+    <span class="s2">&quot;dti_ratio&quot;</span><span class="p">:</span> <span class="kc">None</span>             <span class="c1"># float – calculated later (% or decimal)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="why-these-keys">Why these keys?</h3>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Key(s)</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identity</strong></td>
+<td><code>user_id</code>, <code>first_name</code>, <code>last_name</code></td>
+<td>Lets you cache results per user and show friendly messages.</td>
+</tr>
+<tr>
+<td><strong>Income</strong></td>
+<td><code>gross_monthly_income</code></td>
+<td>DTI is based on <em>gross</em> (pre-tax) income; easier for users to supply monthly rather than annual.</td>
+</tr>
+<tr>
+<td><strong>Debts</strong></td>
+<td>Each payment category</td>
+<td>Lenders usually include these items in DTI screens. Splitting them out helps with validation and future analytics (e.g., “where do users carry most debt?”).</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td><code>dti_ratio</code></td>
+<td>Store the computed result in the same dict so downstream steps (e.g., scoring, UI display, DB insert) can treat it as a single object.</td>
+</tr>
+</tbody>
+</table>
+<p>Feel free to add or drop fields (e.g., separate <code>primary_income</code> and <code>secondary_income</code>, or break out multiple mortgages) as your use-case evolves, but this list will get a basic calculator up and running.</p>
 
 
 
