@@ -1,4 +1,4 @@
-# Build
+# Build LLM and MCP
 
 **“Ollama + MCP Servers from Scratch”**, including key code blocks:
 
