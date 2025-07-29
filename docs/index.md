@@ -1,8 +1,6 @@
-Here's an enhanced **company website content** for [https://blutterfly.github.io/dbnostix/](https://blutterfly.github.io/dbnostix/) based on your resume. You can update your site using this structure for a more professional and comprehensive introduction to your offerings:
 
----
 
-## 🧠 About Dbnostix
+# 🧠 About Dbnostix
 
 **Dbnostix** is a boutique technology consultancy founded by **Larry Prestosa**, a seasoned technology leader with 20+ years of experience spanning enterprise database infrastructure, AI/ML, and full-stack application development.
 
