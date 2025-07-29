@@ -1,41 +1,79 @@
-# Home
+Here's an enhanced **company website content** for [https://blutterfly.github.io/dbnostix/](https://blutterfly.github.io/dbnostix/) based on your resume. You can update your site using this structure for a more professional and comprehensive introduction to your offerings:
 
-**Precision Analytics, Powerful Results**
+---
 
-<hr>
+## 🧠 About Dbnostix
 
-**DBNOSTIX** specializes in state-of-the-art analytics and diagnostics, empowering businesses with actionable insights to enhance performance and fuel growth.
+**Dbnostix** is a boutique technology consultancy founded by **Larry Prestosa**, a seasoned technology leader with 20+ years of experience spanning enterprise database infrastructure, AI/ML, and full-stack application development.
 
+We specialize in architecting and automating resilient systems across healthcare, finance, and technical consulting domains — including cutting-edge work in **local LLM deployment**, **retrieval-augmented generation (RAG)** pipelines, and **predictive analytics**.
 
-## Why Choose Us?
+---
 
-- **Cutting-Edge Technology:** Advanced AI-driven solutions for precise analytics.
-- **Proven Track Record:** Trusted partner delivering measurable business impact.
-- **Customized Solutions:** Tailored services addressing your unique challenges.
+## 🧩 Core Services
 
-<hr>
+### 🚀 AI & ML Solutions
 
-## Our Services
+* LLM Deployment using **Ollama**, CUDA, and LangChain
+* RAG Pipelines using **FAISS**, **Chroma**, **SentenceTransformers**
+* Predictive Modeling with **LSTM**, **Gradient Boosting**, and **Reinforcement Learning**
+* Anomaly Detection and Bias Mitigation with **Evidently AI + Deepchecks**
 
+### 💾 Enterprise Database Architecture
 
-<hr>
+* End-to-end DB architecture with **DB2**, **PostgreSQL**, and **Oracle**
+* High-availability, clustering, replication, disaster recovery
+* Zero-downtime upgrades and operational resilience engineering
 
+### 🛠️ Automation & DevOps
 
-## About Us
+* Python-first automation for Excel, PDF, Email workflows
+* Streamlit + FastAPI web app development
+* CI/CD integration with GitHub Actions, Docker, and Ubuntu
 
-DBNOSTIX was founded with the mission to simplify complex data and empower organizations through insightful, real-time diagnostics. Our experienced team leverages state-of-the-art analytics to deliver impactful results, driving efficiency, clarity, and growth.
+### 📊 Financial Analytics
 
-<hr>
+* SEC/FRED/Yahoo Finance data pipelines
+* Custom dashboards for operational and financial storytelling
+* Automated technical and fundamental stock analysis
 
-## Contact Us
+---
 
-Ready to leverage powerful analytics for your business? Reach out today:
+## 🧪 Recent Projects
 
-<div class="text-center">
-  <a href="mailto:info@dbnostix.com" class="btn btn-primary btn-lg">Contact DBNOSTIX</a>
-</div>
+* **Local LLM for Healthcare**: Deployed a RAG-enabled system on 5M+ patient records for a healthcare provider
+* **Algo Trading Platform**: Built a full-stack pipeline for live and backtested trading strategies using Streamlit, FastAPI, and MkDocs
+* **Resilience Engineering**: Automated self-healing processes for multi-site DB2/Postgres environments with 24x7 uptime
+* **Knowledge Base AI**: Integrated internal document RAG pipeline for enterprise search and reasoning
 
-<hr>
+---
+
+## 📌 Tools & Technologies
+
+**Languages:** Python, SQL, Bash
+**Frameworks:** Streamlit, FastAPI, Flask, MkDocs
+**AI Stack:** Ollama, LangChain, FAISS, scikit-learn, PyTorch, TensorFlow
+**Database Stack:** DB2, PostgreSQL, Oracle, DuckDB
+**Data Tools:** pandas, Jupyter, matplotlib, seaborn, openpyxl, PyPDF2
+**Infra/DevOps:** Docker, GitHub, Ubuntu, NVIDIA CUDA
+
+---
+
+## 👨‍💼 About Larry Prestosa
+
+Larry is an experienced technologist with a deep passion for building intelligent, resilient systems. From local LLM deployment to advanced algorithmic trading, Larry applies a blend of engineering rigor and practical business understanding. He is a **member of American Mensa**, a **graduate of Xavier University**, and an **avid writer** on [Medium](https://medium.com/@larry.prestosa).
+
+* 📍 Richmond, VA
+* 📧 [larry.prestosa@gmail.com](mailto:larry.prestosa@gmail.com)
+* 📞 804-690-3104
+* 🔗 [LinkedIn](https://www.linkedin.com/in/larry-prestosa-9b42b928a)
+* 🔗 [GitHub](https://blutterfly.github.io/dbnostix/)
+* ✍️ [Medium](https://medium.com/@larry.prestosa)
+
+---
+
+Would you like this content packaged in `index.md` or `README.md` format for direct integration with your GitHub Pages site?
+
 
 <footer class="text-center">
   <small>&copy; 2025 DBNOSTIX | All Rights Reserved</small>
