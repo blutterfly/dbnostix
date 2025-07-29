@@ -45,8 +45,7 @@ markdown_extensions:
 nav:
   - Dbnostix: 
       - index.md
-      - dbnostix/contents.md
-      - dbnostix/about.md
+      - dbnostix/projects.md     
       - dbnostix/contact.md
       - dbnostix/services.md
       - dbnostix/help.md      
