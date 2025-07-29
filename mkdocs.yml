@@ -36,7 +36,7 @@ markdown_extensions:
   - pymdownx.details  # Collapsible details blocks
   - pymdownx.superfences  # Allows nesting of code blocks and tabs
   - pymdownx.tabbed:
-      alternate_style: true  # Enables tabbed content
+      alternate_style: true  # Enables tabbed content~
   - pymdownx.snippets  # Allows including external Markdown files
   - attr_list  # Allows attributes lik  # features:  
   - md_in_html  # Allows Markdown inside HTML blocks
