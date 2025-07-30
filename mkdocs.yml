@@ -1,5 +1,5 @@
 site_name: DBNOSTIX
-dev_addr: "127.0.0.1:8003"
+# sudodev_addr: "127.0.0.1:8003"
 
 theme:
   name: material
@@ -54,6 +54,9 @@ nav:
       - services/data_science.md
       - services/predictive_modeling.md
       - services/large_language_model.md
+  - GenAI: 
+      - genai/deep_dive_roadmap.md
+
   - Python:
       - python/00_landing.md     
       - python/00_Contents.md 
